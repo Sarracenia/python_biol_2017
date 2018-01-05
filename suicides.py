@@ -4,8 +4,12 @@ import dash_core_components as dcc
 import dash_html_components as html
 import pandas
 import plotly.graph_objs as graph
+import os
 
 suicides = dash.Dash()
+
+server = app.server
+server.secret_key = os.environ.get('SECRET_KEY', 'my-secret-key')
 
 suicides.layout = html.Div(children=[
     html.H1(children='Data o sebevraždách'),
